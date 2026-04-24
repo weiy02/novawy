@@ -1,0 +1,18 @@
+# 主题配置文件示例 (themes/your-theme/_config.yml)
+# 色彩方案
+# theme: my-awesome-theme
+color_scheme: light   # 可选 light, dark, auto
+
+# 字体设置
+font:
+  family: 'Lato, "PingFang SC", "Microsoft YaHei", sans-serif'
+  size: 16px
+
+# 布局设置
+layout:
+  sidebar_position: right  # 可选 left, right, none
+  posts_excerpt_length: 150
+
+# 是否开启特定功能
+enable_search: true
+enable_dark_mode_toggle: true

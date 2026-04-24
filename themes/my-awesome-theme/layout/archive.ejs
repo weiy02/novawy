@@ -1,0 +1,84 @@
+<h1>归档</h1>
+
+<% const archivePosts = page.posts && page.posts.toArray ? page.posts.toArray() : []; %>
+
+<style>
+  .timeline {
+    position: relative;
+    margin-top: 18px;
+    padding-left: 22px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 10px;
+    width: 2px;
+    background: var(--line);
+  }
+
+  .timeline-year {
+    position: sticky;
+    top: 64px;
+    margin: 20px 0 10px;
+    padding-left: 8px;
+    color: var(--muted);
+    font-weight: 700;
+    background: var(--surface);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin: 0 0 14px;
+    padding: 8px 0 8px 18px;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -18px;
+    top: 16px;
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: var(--primary);
+    border: 2px solid var(--surface);
+    box-shadow: 0 0 0 1px var(--line);
+  }
+
+  .timeline-date {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-right: 8px;
+    white-space: nowrap;
+  }
+
+  .timeline-title {
+    font-weight: 600;
+  }
+</style>
+
+<% if (!archivePosts.length) { %>
+  <p>暂无归档内容。</p>
+<% } %>
+
+<% let currentYear = ''; %>
+<div class="timeline">
+  <% archivePosts.forEach(function(post) { %>
+    <% const postYear = date(post.date, 'YYYY'); %>
+    <% if (postYear !== currentYear) { currentYear = postYear; %>
+      <div class="timeline-year"><%= currentYear %></div>
+    <% } %>
+
+    <article class="timeline-item">
+      <time class="timeline-date" datetime="<%= post.date.toISOString() %>"><%= date(post.date, 'MM-DD') %></time>
+      <a class="timeline-title" href="<%- url_for(post.path) %>"><%- post.title || '无标题' %></a>
+    </article>
+  <% }) %>
+</div>
+
+<div class="pagination">
+  <%- paginator({ prev_text: '← 更新', next_text: '更早 →' }) %>
+</div>

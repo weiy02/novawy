@@ -1,0 +1,109 @@
+<% const postList = page.posts && page.posts.toArray ? page.posts.toArray() : []; %>
+<% const allPosts = site.posts && site.posts.toArray ? site.posts.toArray() : []; %>
+<%
+  const postCountByDate = {};
+  allPosts.forEach(function(post) {
+    const key = date(post.date, 'YYYY-MM-DD');
+    postCountByDate[key] = (postCountByDate[key] || 0) + 1;
+  });
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const heatmapDays = [];
+  for (let i = 29; i >= 0; i--) {
+    const d = new Date(today);
+    d.setDate(today.getDate() - i);
+    const key = date(d, 'YYYY-MM-DD');
+    heatmapDays.push({
+      key,
+      count: postCountByDate[key] || 0
+    });
+  }
+%>
+
+<style>
+  .home-heatmap {
+    margin-bottom: 18px;
+    padding: 14px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--surface);
+  }
+
+  .home-heatmap-title {
+    margin: 0 0 10px;
+    font-size: 0.96rem;
+    color: var(--muted);
+  }
+
+  .home-heatmap-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(7, 12px);
+    grid-auto-columns: 12px;
+    gap: 2px;
+    justify-content: start;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .home-heatmap-cell {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    background: #e5e7eb;
+  }
+
+  .home-heatmap-cell.active {
+    background: #22c55e;
+  }
+
+  [data-theme='dark'] .home-heatmap-cell {
+    background: #2a2f3a;
+  }
+
+  [data-theme='dark'] .home-heatmap-cell.active {
+    background: #22c55e;
+  }
+
+  .home-heatmap-legend {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+</style>
+
+<section class="home-heatmap">
+  <h3 class="home-heatmap-title">最近 30 天发文热力图</h3>
+  <div class="home-heatmap-grid">
+    <% heatmapDays.forEach(function(day) { %>
+      <span
+        class="home-heatmap-cell <%= day.count > 0 ? 'active' : '' %>"
+        title="<%= day.key %>（<%= day.count %> 篇）"
+      ></span>
+    <% }) %>
+  </div>
+  <div class="home-heatmap-legend">灰色：无文章 · 绿色：当天有文章</div>
+</section>
+
+<% if (!postList.length) { %>
+  <p>还没有文章，先写一篇试试。</p>
+<% } %>
+
+<% postList.forEach(function(post) { %>
+  <article class="post-item">
+    <h2>
+      <a href="<%- url_for(post.path) %>"><%- post.title || '无标题' %></a>
+    </h2>
+    <div class="meta">
+      <time datetime="<%= post.date.toISOString() %>"><%= date(post.date, 'YYYY-MM-DD') %></time>
+    </div>
+    <% if (post.excerpt) { %>
+      <div class="excerpt"><%- post.excerpt %></div>
+    <% } %>
+  </article>
+<% }) %>
+
+<div class="pagination">
+  <%- paginator({ prev_text: '← 更新', next_text: '更早 →' }) %>
+</div>

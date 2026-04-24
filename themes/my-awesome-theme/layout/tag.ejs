@@ -1,0 +1,16 @@
+<h1>标签</h1>
+
+<% const tags = site.tags ? site.tags.toArray() : []; %>
+
+<% if (!tags.length) { %>
+  <p>暂无标签。</p>
+<% } %>
+
+<ul>
+  <% tags.forEach(function(t) { %>
+    <li>
+      <a href="<%- url_for(t.path) %>">#<%- t.name %></a>
+      <span class="meta">(<%= t.length %>)</span>
+    </li>
+  <% }) %>
+</ul>

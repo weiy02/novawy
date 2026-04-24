@@ -1,0 +1,25 @@
+<article>
+  <h1 class="post-title"><%- page.title || '无标题' %></h1>
+  <div class="meta">
+    <time datetime="<%= page.date.toISOString() %>"><%= date(page.date, 'YYYY-MM-DD HH:mm') %></time>
+    <% if (page.categories && page.categories.length) { %>
+      · 分类：
+      <% page.categories.forEach(function(c, idx) { %>
+        <a href="<%- url_for(c.path) %>"><%- c.name %></a><%= idx < page.categories.length - 1 ? ' / ' : '' %>
+      <% }) %>
+    <% } %>
+  </div>
+
+  <div class="post-content">
+    <%- page.content %>
+  </div>
+
+  <% if (page.tags && page.tags.length) { %>
+    <div class="meta" style="margin-top: 16px;">
+      标签：
+      <% page.tags.forEach(function(t, idx) { %>
+        <a href="<%- url_for(t.path) %>">#<%- t.name %></a><%= idx < page.tags.length - 1 ? ' ' : '' %>
+      <% }) %>
+    </div>
+  <% } %>
+</article>

@@ -1,0 +1,16 @@
+<h1>分类</h1>
+
+<% const categories = site.categories ? site.categories.toArray() : []; %>
+
+<% if (!categories.length) { %>
+  <p>暂无分类。</p>
+<% } %>
+
+<ul>
+  <% categories.forEach(function(c) { %>
+    <li>
+      <a href="<%- url_for(c.path) %>"><%- c.name %></a>
+      <span class="meta">(<%= c.length %>)</span>
+    </li>
+  <% }) %>
+</ul>
