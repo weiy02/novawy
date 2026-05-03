@@ -203,6 +203,52 @@
           </div>
         </section>
       `
+    },
+
+    MdDivider: {
+      props: {
+        variant: {
+          type: String,
+          default: 'gradient',
+          validator: function(v) {
+            return ['gradient', 'line', 'dotted', 'ornate', 'fade'].indexOf(v) !== -1;
+          }
+        },
+        label: { type: String, default: '' },
+        accent: { type: String, default: '' }
+      },
+      computed: {
+        rootClass: function() {
+          var parts = ['md-divider--' + (this.variant || 'gradient')];
+          if (this.label) parts.push('md-divider--labeled');
+          return parts;
+        },
+        accentStyle: function() {
+          var c = (this.accent || '').trim();
+          return { '--md-divider-accent': c || undefined };
+        }
+      },
+      template: `
+        <div
+          class="md-divider-wrap"
+          role="separator"
+          aria-orientation="horizontal"
+          :class="rootClass"
+          :style="accentStyle"
+        >
+          <template v-if="label">
+            <span class="md-divider__arm md-divider__arm--left" aria-hidden="true"></span>
+            <span class="md-divider__label">{{ label }}</span>
+            <span class="md-divider__arm md-divider__arm--right" aria-hidden="true"></span>
+          </template>
+          <template v-else-if="variant === 'ornate'">
+            <span class="md-divider__ornate-line" aria-hidden="true"></span>
+            <span class="md-divider__gem" aria-hidden="true">◆</span>
+            <span class="md-divider__ornate-line" aria-hidden="true"></span>
+          </template>
+          <span v-else class="md-divider__track" aria-hidden="true"></span>
+        </div>
+      `
     }
   };
 })();
