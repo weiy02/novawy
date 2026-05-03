@@ -691,6 +691,88 @@
         border-radius: 999px;
         background: var(--surface);
       }
+
+      .md-image-frame {
+        margin: 16px 0;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        overflow: hidden;
+        background: var(--surface);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      }
+
+      [data-theme='dark'] .md-image-frame {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+      }
+
+      .md-image-frame__titlebar {
+        display: grid;
+        grid-template-columns: minmax(76px, auto) 1fr minmax(76px, auto);
+        align-items: center;
+        gap: 8px;
+        min-height: 40px;
+        padding: 0 12px;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.06));
+        border-bottom: 1px solid var(--line);
+      }
+
+      [data-theme='dark'] .md-image-frame__titlebar {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.07));
+      }
+
+      .md-image-frame__dots {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+
+      .md-image-frame__dot {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.35), 0 0.5px 1px rgba(0, 0, 0, 0.2);
+      }
+
+      .md-image-frame__dot--red {
+        background: #ff5f57;
+      }
+
+      .md-image-frame__dot--yellow {
+        background: #febc2e;
+      }
+
+      .md-image-frame__dot--green {
+        background: #28c840;
+      }
+
+      .md-image-frame__title {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--muted);
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .md-image-frame__titlebar-spacer {
+        width: 100%;
+        height: 1px;
+        visibility: hidden;
+      }
+
+      .md-image-frame__body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg);
+      }
+
+      .md-image-frame__img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
     </style>
   <meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
   direction: ltr;
@@ -865,12 +947,22 @@ mjx-container[display="true"] + br {
 
 <h2 id="动态规划算法"><a href="#动态规划算法" class="headerlink" title="动态规划算法"></a>动态规划算法</h2><p>算法总体思想：将待求解问题分解成若干个子问题，分治算法出现子问题重复计算的情况（可以使用记忆化搜索的形式避免重复计算）<br>常用于求解最优化问题</p>
 <p>基本思想（与分治区别：有重叠子问题）、求解问题的基本步骤（简答题）。重叠子问题，最优子结构（两个基本要素）</p>
-<p>动态规划的求解步骤：<br>1.找出最优解的性质，并刻画其结构特征<br>2.递归的定义最优值<br>3.以自底向上的方式计算出最优值<br>4.根据计算最优值时得到的信息构造最优解</p>
+<p>动态规划的求解步骤：</p>
+<ol>
+<li>找出最优解的性质，并刻画其结构特征</li>
+<li>递归的定义最优值</li>
+<li>以自底向上的方式计算出最优值</li>
+<li>根据计算最优值时得到的信息构造最优解</li>
+</ol>
 <p>动态规划的基本要素：重叠子问题（记忆化搜索避免重复计算）、最优子结构</p>
-<p>题目一：矩阵连乘问题<br>题目描述：</p>
-<img src="/2026/04/22/asset-demo/5.png" class="" title="题目描述">
+<p><strong>题目一：矩阵连乘问题</strong><br>题目描述：</p>
+<!-- <img src="/2026/04/22/asset-demo/5.png" class="" title="题目描述"> -->
+
+<div class="md-vue-root" data-component="MdImageFrame" data-props="{&quot;title&quot;:&quot;矩阵连乘题目描述&quot;,&quot;src&quot;:&quot;/2026/04/22/asset-demo/5.png&quot;}"></div>
 
 <p>题目二：最长公共子序列（lcs算法）《最长公共子串》<br>题目描述：</p>
+<div class="md-vue-root" data-component="MdImageFrame" data-props="{&quot;title&quot;:&quot;最长公共子序列&quot;,&quot;src&quot;:&quot;/2026/04/22/asset-demo/20.png&quot;}"></div>
+
 <p>7.实战练习（找零钱问题，砝码称重问题，最大子数组之和）</p>
 <div class="md-vue-root" data-component="MdDivider" data-props="{&quot;variant&quot;:&quot;dotted&quot;}"></div>
 

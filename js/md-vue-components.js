@@ -205,6 +205,29 @@
       `
     },
 
+    MdImageFrame: {
+      props: {
+        title: { type: String, default: '未命名图片' },
+        src: { type: String, default: '' }
+      },
+      template: `
+        <figure class="md-image-frame">
+          <figcaption class="md-image-frame__titlebar">
+            <span class="md-image-frame__dots" aria-hidden="true">
+              <span class="md-image-frame__dot md-image-frame__dot--red"></span>
+              <span class="md-image-frame__dot md-image-frame__dot--yellow"></span>
+              <span class="md-image-frame__dot md-image-frame__dot--green"></span>
+            </span>
+            <span class="md-image-frame__title">{{ title }}</span>
+            <span class="md-image-frame__titlebar-spacer" aria-hidden="true"></span>
+          </figcaption>
+          <div v-if="src" class="md-image-frame__body">
+            <img class="md-image-frame__img" :src="src" :alt="title" loading="lazy" />
+          </div>
+        </figure>
+      `
+    },
+
     MdDivider: {
       props: {
         variant: {

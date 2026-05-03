@@ -691,6 +691,88 @@
         border-radius: 999px;
         background: var(--surface);
       }
+
+      .md-image-frame {
+        margin: 16px 0;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        overflow: hidden;
+        background: var(--surface);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      }
+
+      [data-theme='dark'] .md-image-frame {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+      }
+
+      .md-image-frame__titlebar {
+        display: grid;
+        grid-template-columns: minmax(76px, auto) 1fr minmax(76px, auto);
+        align-items: center;
+        gap: 8px;
+        min-height: 40px;
+        padding: 0 12px;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.06));
+        border-bottom: 1px solid var(--line);
+      }
+
+      [data-theme='dark'] .md-image-frame__titlebar {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.07));
+      }
+
+      .md-image-frame__dots {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+
+      .md-image-frame__dot {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.35), 0 0.5px 1px rgba(0, 0, 0, 0.2);
+      }
+
+      .md-image-frame__dot--red {
+        background: #ff5f57;
+      }
+
+      .md-image-frame__dot--yellow {
+        background: #febc2e;
+      }
+
+      .md-image-frame__dot--green {
+        background: #28c840;
+      }
+
+      .md-image-frame__title {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--muted);
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .md-image-frame__titlebar-spacer {
+        width: 100%;
+        height: 1px;
+        visibility: hidden;
+      }
+
+      .md-image-frame__body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg);
+      }
+
+      .md-image-frame__img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
     </style>
   <meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
   direction: ltr;
