@@ -273,5 +273,32 @@
         </div>
       `
     }
+    ,
+    GreenCard: {
+      props: {
+        text: { type: String, default: '' },
+        highlightCount: { type: Number, default: 3 },
+        bgColor: { type: String, default: '#16a34a' },
+        color: { type: String, default: '#ffffff' }
+      },
+      computed: {
+        head() {
+          try {
+            return (this.text || '').slice(0, this.highlightCount);
+          } catch (e) { return '' }
+        },
+        tail() {
+          try {
+            return (this.text || '').slice(this.highlightCount);
+          } catch (e) { return '' }
+        }
+      },
+      template: `
+        <div :style="{ background: bgColor, color: color, padding: '14px 16px', borderRadius: '10px', display: 'inline-block' }">
+          <span :style="{ fontWeight: 700, fontSize: '1.05em', marginRight: '6px' }">{{ head }}</span>
+          <span :style="{ fontWeight: 400, fontFamily: 'KaiTi, \"楷体\", serif' }">{{ tail }}</span>
+        </div>
+      `
+    }
   };
 })();

@@ -6,6 +6,12 @@
     <title>
       分类 | HelloWold
     </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
         --bg: #f7f8fa;
@@ -15,6 +21,8 @@
         --muted: #6b7280;
         --line: #e5e7eb;
         --primary: #2563eb;
+        /* 等宽：Fira Code（连体字）→ Consolas → Courier New */
+        --font-mono: 'Fira Code', Consolas, 'Courier New', monospace;
       }
 
       [data-theme='dark'] {
@@ -324,13 +332,14 @@
         box-shadow: inset 0 0 0 1px rgba(251, 191, 36, 0.45);
       }
 
-      /* Code highlight */
+      /* Code highlight：Fira Code 连体字；回退字体忽略未知 feature */
       code {
         padding: 0.15em 0.4em;
         border-radius: 6px;
         background: rgba(99, 110, 123, 0.15);
-        font-family: Consolas, 'Courier New', monospace;
+        font-family: var(--font-mono);
         font-size: 0.92em;
+        font-feature-settings: 'liga' 1, 'calt' 1;
       }
 
       pre {
@@ -340,11 +349,19 @@
         border: 1px solid var(--line);
         background: #f3f4f6;
         overflow: auto;
+        font-family: var(--font-mono);
+        font-size: 0.9rem;
+        line-height: 1.65;
+        tab-size: 4;
+        -moz-tab-size: 4;
+        font-feature-settings: 'liga' 1, 'calt' 1;
       }
 
       pre code {
         padding: 0;
         background: transparent;
+        font-size: 1em;
+        font-feature-settings: inherit;
       }
 
       [data-theme='dark'] pre {
@@ -352,10 +369,101 @@
       }
 
       figure.highlight {
+        position: relative;
         margin: 14px 0;
         border-radius: 10px;
         border: 1px solid var(--line);
         overflow: hidden;
+        padding-top: 34px;
+      }
+
+      .code-block-head {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 4;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        min-height: 34px;
+        padding: 0 8px 0 12px;
+        border-bottom: 1px solid var(--line);
+        background: linear-gradient(
+          180deg,
+          rgba(243, 244, 246, 0.98) 0%,
+          rgba(243, 244, 246, 0.92) 70%,
+          rgba(243, 244, 246, 0) 100%
+        );
+        font-family: inherit;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      [data-theme='dark'] .code-block-head {
+        background: linear-gradient(
+          180deg,
+          rgba(17, 24, 39, 0.98) 0%,
+          rgba(17, 24, 39, 0.92) 70%,
+          rgba(17, 24, 39, 0) 100%
+        );
+      }
+
+      .code-block-lang {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .code-block-copy {
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 28px;
+        margin-right: -2px;
+        padding: 0;
+        border: none;
+        border-radius: 8px;
+        background: transparent;
+        color: var(--muted);
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.18s ease, color 0.15s ease, background 0.15s ease;
+      }
+
+      figure.highlight:hover .code-block-copy,
+      figure.highlight:focus-within .code-block-copy {
+        opacity: 1;
+      }
+
+      .code-block-copy:hover {
+        color: var(--primary);
+        background: rgba(99, 110, 123, 0.14);
+      }
+
+      [data-theme='dark'] .code-block-copy:hover {
+        background: rgba(148, 163, 184, 0.12);
+      }
+
+      .code-block-copy svg {
+        display: block;
+      }
+
+      .code-block-copy.is-done {
+        color: #16a34a;
+        opacity: 1;
+      }
+
+      [data-theme='dark'] .code-block-copy.is-done {
+        color: #4ade80;
       }
 
       figure.highlight table {
@@ -378,6 +486,12 @@
         border: none;
         border-radius: 0;
         background: transparent;
+        font-family: var(--font-mono);
+        font-size: 0.9rem;
+        line-height: 1.65;
+        tab-size: 4;
+        -moz-tab-size: 4;
+        font-feature-settings: 'liga' 1, 'calt' 1;
       }
 
       figure.highlight .code {
@@ -386,6 +500,11 @@
 
       [data-theme='dark'] figure.highlight .code {
         background: #111827;
+      }
+
+      figure.highlight pre code {
+        font-size: 1em;
+        font-feature-settings: inherit;
       }
 
       /* Hexo highlight.js / Prism 常见 token */
@@ -544,11 +663,19 @@
         margin: 0;
         border: none;
         border-radius: 0;
+        font-family: var(--font-mono);
+        font-size: 0.9rem;
+        line-height: 1.65;
+        tab-size: 4;
+        -moz-tab-size: 4;
+        font-feature-settings: 'liga' 1, 'calt' 1;
       }
 
       .md-code-switch-code {
         display: block;
         white-space: pre;
+        font-family: inherit;
+        font-size: inherit;
       }
 
       .md-code-switch-body {
@@ -572,6 +699,8 @@
         display: block;
         line-height: 1.8;
         font-size: 0.84rem;
+        font-family: var(--font-mono);
+        font-feature-settings: 'liga' 1, 'calt' 1;
       }
 
       .md-divider-wrap {
@@ -935,7 +1064,7 @@ mjx-container[display="true"] + br {
       </footer>
     </div>
 
-    <script id="search-posts-data" type="application/json">[{"title":"Git基础知识","url":"/2026/04/28/Git/"},{"title":"算法分析与设计知识总结","url":"/2026/04/22/asset-demo/"},{"title":"Hello World","url":"/2026/04/21/hello-world/"},{"title":"说明","url":"/2026/04/22/README/"}]</script>
+    <script id="search-posts-data" type="application/json">[{"title":"Git基础知识","url":"/2026/04/28/Git/"},{"title":"无标题","url":"/2026/05/06/CAndCpp/"},{"title":"说明","url":"/2026/04/22/README/"},{"title":"算法分析与设计知识总结","url":"/2026/04/22/asset-demo/"},{"title":"Hello World","url":"/2026/04/21/hello-world/"}]</script>
     <script src="https://cdn.jsdelivr.net/npm/vue@3.5.17/dist/vue.global.prod.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-clike.min.js"></script>
@@ -1105,6 +1234,166 @@ mjx-container[display="true"] + br {
               searchResults.classList.remove('open');
             }
           });
+        }
+      })();
+    </script>
+    <script>
+      (function() {
+        var CLIPBOARD_ICON =
+          '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+
+        var LANG_LABELS = {
+          bash: 'Bash',
+          sh: 'Shell',
+          shell: 'Shell',
+          zsh: 'Zsh',
+          js: 'JavaScript',
+          javascript: 'JavaScript',
+          ts: 'TypeScript',
+          typescript: 'TypeScript',
+          md: 'Markdown',
+          markdown: 'Markdown',
+          html: 'HTML',
+          css: 'CSS',
+          scss: 'SCSS',
+          sass: 'Sass',
+          less: 'Less',
+          json: 'JSON',
+          yaml: 'YAML',
+          yml: 'YAML',
+          py: 'Python',
+          python: 'Python',
+          java: 'Java',
+          cpp: 'C++',
+          'c++': 'C++',
+          cxx: 'C++',
+          c: 'C',
+          cs: 'C#',
+          csharp: 'C#',
+          go: 'Go',
+          rust: 'Rust',
+          rs: 'Rust',
+          rb: 'Ruby',
+          ruby: 'Ruby',
+          php: 'PHP',
+          sql: 'SQL',
+          xml: 'XML',
+          vue: 'Vue',
+          diff: 'Diff',
+          dockerfile: 'Dockerfile',
+          docker: 'Docker',
+          plaintext: 'Plain text',
+          text: 'Plain text',
+          txt: 'Plain text',
+          ejs: 'EJS',
+          styl: 'Stylus',
+          swift: 'Swift',
+          kt: 'Kotlin',
+          kotlin: 'Kotlin',
+        };
+
+        function rawLangFromFigure(fig) {
+          var parts = [];
+          fig.classList.forEach(function(c) {
+            if (c !== 'highlight') parts.push(c);
+          });
+          return parts.join(' ').trim() || 'text';
+        }
+
+        function langLabel(raw) {
+          var key = String(raw || '')
+            .trim()
+            .toLowerCase();
+          if (LANG_LABELS[key]) return LANG_LABELS[key];
+          return String(raw || 'Code')
+            .split(/\s+/)
+            .map(function(tok) {
+              if (!tok) return '';
+              return tok.charAt(0).toUpperCase() + tok.slice(1).toLowerCase();
+            })
+            .filter(Boolean)
+            .join(' / ');
+        }
+
+        function getFigureCodeText(fig) {
+          var pre = fig.querySelector('td.code pre') || fig.querySelector('.code pre');
+          if (!pre) return '';
+          return String(pre.innerText || '').replace(/\u00a0/g, ' ').replace(/\n+$/, '');
+        }
+
+        function copyText(text) {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            return navigator.clipboard.writeText(text);
+          }
+          return new Promise(function(resolve, reject) {
+            var ta = document.createElement('textarea');
+            ta.value = text;
+            ta.setAttribute('readonly', '');
+            ta.style.position = 'fixed';
+            ta.style.left = '-9999px';
+            document.body.appendChild(ta);
+            ta.select();
+            try {
+              document.execCommand('copy');
+              resolve();
+            } catch (e) {
+              reject(e);
+            } finally {
+              document.body.removeChild(ta);
+            }
+          });
+        }
+
+        function enhanceFigure(fig) {
+          if (fig.getAttribute('data-code-toolbar') === '1') return;
+          var raw = rawLangFromFigure(fig);
+          var label = langLabel(raw);
+          var head = document.createElement('div');
+          head.className = 'code-block-head';
+          var langEl = document.createElement('span');
+          langEl.className = 'code-block-lang';
+          langEl.textContent = label;
+          langEl.title = raw;
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'code-block-copy';
+          btn.setAttribute('aria-label', '复制代码');
+          btn.title = '复制代码';
+          btn.innerHTML = CLIPBOARD_ICON;
+          head.appendChild(langEl);
+          head.appendChild(btn);
+          fig.insertBefore(head, fig.firstChild);
+          fig.setAttribute('data-code-toolbar', '1');
+
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var t = getFigureCodeText(fig);
+            copyText(t)
+              .then(function() {
+                btn.classList.add('is-done');
+                btn.setAttribute('aria-label', '已复制');
+                btn.title = '已复制';
+                window.setTimeout(function() {
+                  btn.classList.remove('is-done');
+                  btn.setAttribute('aria-label', '复制代码');
+                  btn.title = '复制代码';
+                }, 1600);
+              })
+              .catch(function() {
+                btn.title = '复制失败，请手动选择';
+              });
+          });
+        }
+
+        function run() {
+          document.querySelectorAll('figure.highlight').forEach(enhanceFigure);
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', run);
+        } else {
+          run();
         }
       })();
     </script>
