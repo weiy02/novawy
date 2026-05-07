@@ -902,6 +902,63 @@
         width: 100%;
         height: auto;
       }
+
+      .global-post-toc {
+        position: fixed;
+        right: 16px;
+        top: 88px;
+        z-index: 15;
+        width: min(280px, 24vw);
+        max-height: calc(100vh - 104px);
+        overflow: auto;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--surface);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      }
+
+      .global-post-toc h3 {
+        margin: 0 0 8px;
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
+
+      .global-post-toc .toc,
+      .global-post-toc ol,
+      .global-post-toc ul {
+        margin: 0;
+        padding-left: 14px;
+        list-style: none;
+      }
+
+      .global-post-toc li {
+        margin: 4px 0;
+        line-height: 1.5;
+        font-size: 0.88rem;
+      }
+
+      .global-post-toc .toc-child {
+        margin-top: 4px;
+        padding-left: 10px;
+        border-left: 1px dashed var(--line);
+      }
+
+      .global-post-toc a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+
+      .global-post-toc a:hover {
+        color: var(--primary);
+        text-decoration: underline;
+      }
+
+      @media (max-width: 1240px) {
+        .global-post-toc {
+          display: none;
+        }
+      }
     </style>
   <meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
   direction: ltr;
@@ -1017,6 +1074,7 @@ mjx-container[display="true"] + br {
 }
 </style></head>
   <body>
+    
     <nav class="top-nav">
       <div class="top-nav-inner">
         <a class="brand" href="/">还不知道起什么名字好</a>
@@ -1045,90 +1103,15 @@ mjx-container[display="true"] + br {
       </header>
 
       <main class="content">
-        
+        <article>
+  <h1 class="post-title">Hello World</h1>
+  <div class="meta">
+    <time datetime="2026-04-21T13:10:13.692Z">2026-04-21 21:10</time>
+    
+  </div>
 
-<style>
-  .post-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 240px;
-    gap: 20px;
-    align-items: start;
-  }
-
-  .post-main {
-    min-width: 0;
-  }
-
-  .post-toc {
-    position: sticky;
-    top: 84px;
-    padding: 12px;
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    background: var(--surface);
-    max-height: calc(100vh - 110px);
-    overflow: auto;
-  }
-
-  .post-toc h3 {
-    margin: 0 0 8px;
-    font-size: 0.95rem;
-    color: var(--muted);
-  }
-
-  .post-toc .toc,
-  .post-toc ol,
-  .post-toc ul {
-    margin: 0;
-    padding-left: 16px;
-    list-style: none;
-  }
-
-  .post-toc li {
-    margin: 4px 0;
-    line-height: 1.5;
-    font-size: 0.9rem;
-  }
-
-  .post-toc .toc-child {
-    margin-top: 4px;
-    padding-left: 12px;
-    border-left: 1px dashed var(--line);
-  }
-
-  .post-toc a {
-    color: var(--muted);
-    text-decoration: none;
-  }
-
-  .post-toc a:hover {
-    color: var(--primary);
-    text-decoration: underline;
-  }
-
-  @media (max-width: 980px) {
-    .post-layout {
-      grid-template-columns: 1fr;
-    }
-
-    .post-toc {
-      position: static;
-      max-height: none;
-      margin-top: 10px;
-    }
-  }
-</style>
-
-<section class="post-layout">
-  <article class="post-main">
-    <h1 class="post-title">Hello World</h1>
-    <div class="meta">
-      <time datetime="2026-04-21T13:10:13.692Z">2026-04-21 21:10</time>
-      
-    </div>
-
-    <div class="post-content">
-      <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+  <div class="post-content">
+    <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
@@ -1153,18 +1136,10 @@ mjx-container[display="true"] + br {
 <p>引用</p>
 </blockquote>
 
-    </div>
-
-    
-  </article>
+  </div>
 
   
-    <aside class="post-toc" aria-label="文章目录">
-      <h3>目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
-    </aside>
-  
-</section>
+</article>
 
       </main>
 
@@ -1173,7 +1148,14 @@ mjx-container[display="true"] + br {
       </footer>
     </div>
 
-    <script id="search-posts-data" type="application/json">[{"title":"使用教程","url":"/2026/04/22/README/"},{"title":"算法分析与设计知识总结","url":"/2026/04/22/asset-demo/"},{"title":"Git基础知识","url":"/2026/04/28/Git/"},{"title":"Hello World","url":"/2026/04/21/hello-world/"},{"title":"算法竞赛C++基础","url":"/2026/05/07/CAndCpp/"}]</script>
+    
+      <aside class="global-post-toc" aria-label="文章目录">
+        <h3>目录</h3>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+      </aside>
+    
+
+    <script id="search-posts-data" type="application/json">[{"title":"Git基础知识","url":"/2026/04/28/Git/"},{"title":"算法竞赛C++基础","url":"/2026/05/07/CAndCpp/"},{"title":"算法分析与设计知识总结","url":"/2026/04/22/asset-demo/"},{"title":"使用教程","url":"/2026/04/22/README/"},{"title":"Hello World","url":"/2026/04/21/hello-world/"}]</script>
     <script src="https://cdn.jsdelivr.net/npm/vue@3.5.17/dist/vue.global.prod.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-clike.min.js"></script>

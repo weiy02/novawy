@@ -902,6 +902,63 @@
         width: 100%;
         height: auto;
       }
+
+      .global-post-toc {
+        position: fixed;
+        right: 16px;
+        top: 88px;
+        z-index: 15;
+        width: min(280px, 24vw);
+        max-height: calc(100vh - 104px);
+        overflow: auto;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--surface);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      }
+
+      .global-post-toc h3 {
+        margin: 0 0 8px;
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
+
+      .global-post-toc .toc,
+      .global-post-toc ol,
+      .global-post-toc ul {
+        margin: 0;
+        padding-left: 14px;
+        list-style: none;
+      }
+
+      .global-post-toc li {
+        margin: 4px 0;
+        line-height: 1.5;
+        font-size: 0.88rem;
+      }
+
+      .global-post-toc .toc-child {
+        margin-top: 4px;
+        padding-left: 10px;
+        border-left: 1px dashed var(--line);
+      }
+
+      .global-post-toc a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+
+      .global-post-toc a:hover {
+        color: var(--primary);
+        text-decoration: underline;
+      }
+
+      @media (max-width: 1240px) {
+        .global-post-toc {
+          display: none;
+        }
+      }
     </style>
   <meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
   direction: ltr;
@@ -1017,6 +1074,7 @@ mjx-container[display="true"] + br {
 }
 </style></head>
   <body>
+    
     <nav class="top-nav">
       <div class="top-nav-inner">
         <a class="brand" href="/">还不知道起什么名字好</a>
@@ -1068,7 +1126,9 @@ mjx-container[display="true"] + br {
       </footer>
     </div>
 
-    <script id="search-posts-data" type="application/json">[{"title":"使用教程","url":"/2026/04/22/README/"},{"title":"算法分析与设计知识总结","url":"/2026/04/22/asset-demo/"},{"title":"Git基础知识","url":"/2026/04/28/Git/"},{"title":"Hello World","url":"/2026/04/21/hello-world/"},{"title":"算法竞赛C++基础","url":"/2026/05/07/CAndCpp/"}]</script>
+    
+
+    <script id="search-posts-data" type="application/json">[{"title":"Git基础知识","url":"/2026/04/28/Git/"},{"title":"算法竞赛C++基础","url":"/2026/05/07/CAndCpp/"},{"title":"算法分析与设计知识总结","url":"/2026/04/22/asset-demo/"},{"title":"使用教程","url":"/2026/04/22/README/"},{"title":"Hello World","url":"/2026/04/21/hello-world/"}]</script>
     <script src="https://cdn.jsdelivr.net/npm/vue@3.5.17/dist/vue.global.prod.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-clike.min.js"></script>

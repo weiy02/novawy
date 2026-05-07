@@ -902,6 +902,63 @@
         width: 100%;
         height: auto;
       }
+
+      .global-post-toc {
+        position: fixed;
+        right: 16px;
+        top: 88px;
+        z-index: 15;
+        width: min(280px, 24vw);
+        max-height: calc(100vh - 104px);
+        overflow: auto;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--surface);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      }
+
+      .global-post-toc h3 {
+        margin: 0 0 8px;
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
+
+      .global-post-toc .toc,
+      .global-post-toc ol,
+      .global-post-toc ul {
+        margin: 0;
+        padding-left: 14px;
+        list-style: none;
+      }
+
+      .global-post-toc li {
+        margin: 4px 0;
+        line-height: 1.5;
+        font-size: 0.88rem;
+      }
+
+      .global-post-toc .toc-child {
+        margin-top: 4px;
+        padding-left: 10px;
+        border-left: 1px dashed var(--line);
+      }
+
+      .global-post-toc a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+
+      .global-post-toc a:hover {
+        color: var(--primary);
+        text-decoration: underline;
+      }
+
+      @media (max-width: 1240px) {
+        .global-post-toc {
+          display: none;
+        }
+      }
     </style>
   <meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
   direction: ltr;
@@ -1017,6 +1074,7 @@ mjx-container[display="true"] + br {
 }
 </style></head>
   <body>
+    
     <nav class="top-nav">
       <div class="top-nav-inner">
         <a class="brand" href="/">还不知道起什么名字好</a>
@@ -1045,107 +1103,24 @@ mjx-container[display="true"] + br {
       </header>
 
       <main class="content">
-        
-
-<style>
-  .post-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 240px;
-    gap: 20px;
-    align-items: start;
-  }
-
-  .post-main {
-    min-width: 0;
-  }
-
-  .post-toc {
-    position: sticky;
-    top: 84px;
-    padding: 12px;
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    background: var(--surface);
-    max-height: calc(100vh - 110px);
-    overflow: auto;
-  }
-
-  .post-toc h3 {
-    margin: 0 0 8px;
-    font-size: 0.95rem;
-    color: var(--muted);
-  }
-
-  .post-toc .toc,
-  .post-toc ol,
-  .post-toc ul {
-    margin: 0;
-    padding-left: 16px;
-    list-style: none;
-  }
-
-  .post-toc li {
-    margin: 4px 0;
-    line-height: 1.5;
-    font-size: 0.9rem;
-  }
-
-  .post-toc .toc-child {
-    margin-top: 4px;
-    padding-left: 12px;
-    border-left: 1px dashed var(--line);
-  }
-
-  .post-toc a {
-    color: var(--muted);
-    text-decoration: none;
-  }
-
-  .post-toc a:hover {
-    color: var(--primary);
-    text-decoration: underline;
-  }
-
-  @media (max-width: 980px) {
-    .post-layout {
-      grid-template-columns: 1fr;
-    }
-
-    .post-toc {
-      position: static;
-      max-height: none;
-      margin-top: 10px;
-    }
-  }
-</style>
-
-<section class="post-layout">
-  <article class="post-main">
-    <h1 class="post-title">算法竞赛C++基础</h1>
-    <div class="meta">
-      <time datetime="2026-05-06T16:00:00.000Z">2026-05-07 00:00</time>
-      
-        · 分类：
-        
-          <a href="/categories/%E8%AF%BE%E7%A8%8B%E8%80%83%E8%AF%95/">课程考试</a>
-        
-      
-    </div>
-
-    <div class="post-content">
-      <h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><h1 id="define和typedef的用法"><a href="#define和typedef的用法" class="headerlink" title="#define和typedef的用法"></a>#define和typedef的用法</h1>
-    </div>
-
+        <article>
+  <h1 class="post-title">算法竞赛C++基础</h1>
+  <div class="meta">
+    <time datetime="2026-05-06T16:00:00.000Z">2026-05-07 00:00</time>
     
-  </article>
+      · 分类：
+      
+        <a href="/categories/%E8%AF%BE%E7%A8%8B%E8%80%83%E8%AF%95/">课程考试</a>
+      
+    
+  </div>
+
+  <div class="post-content">
+    <h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><h1 id="define和typedef的用法"><a href="#define和typedef的用法" class="headerlink" title="#define和typedef的用法"></a>#define和typedef的用法</h1>
+  </div>
 
   
-    <aside class="post-toc" aria-label="文章目录">
-      <h3>目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C"><span class="toc-text">C++</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#define%E5%92%8Ctypedef%E7%9A%84%E7%94%A8%E6%B3%95"><span class="toc-text">#define和typedef的用法</span></a></li></ol>
-    </aside>
-  
-</section>
+</article>
 
       </main>
 
@@ -1154,7 +1129,14 @@ mjx-container[display="true"] + br {
       </footer>
     </div>
 
-    <script id="search-posts-data" type="application/json">[{"title":"使用教程","url":"/2026/04/22/README/"},{"title":"算法分析与设计知识总结","url":"/2026/04/22/asset-demo/"},{"title":"Git基础知识","url":"/2026/04/28/Git/"},{"title":"Hello World","url":"/2026/04/21/hello-world/"},{"title":"算法竞赛C++基础","url":"/2026/05/07/CAndCpp/"}]</script>
+    
+      <aside class="global-post-toc" aria-label="文章目录">
+        <h3>目录</h3>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C"><span class="toc-text">C++</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#define%E5%92%8Ctypedef%E7%9A%84%E7%94%A8%E6%B3%95"><span class="toc-text">#define和typedef的用法</span></a></li></ol>
+      </aside>
+    
+
+    <script id="search-posts-data" type="application/json">[{"title":"Git基础知识","url":"/2026/04/28/Git/"},{"title":"算法竞赛C++基础","url":"/2026/05/07/CAndCpp/"},{"title":"算法分析与设计知识总结","url":"/2026/04/22/asset-demo/"},{"title":"使用教程","url":"/2026/04/22/README/"},{"title":"Hello World","url":"/2026/04/21/hello-world/"}]</script>
     <script src="https://cdn.jsdelivr.net/npm/vue@3.5.17/dist/vue.global.prod.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-clike.min.js"></script>
