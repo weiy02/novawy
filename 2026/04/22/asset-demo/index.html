@@ -1045,20 +1045,95 @@ mjx-container[display="true"] + br {
       </header>
 
       <main class="content">
-        <article>
-  <h1 class="post-title">算法分析与设计知识总结</h1>
-  <div class="meta">
-    <time datetime="2026-04-22T12:11:11.000Z">2026-04-22 20:11</time>
-    
-      · 分类：
-      
-        <a href="/categories/%E8%AF%BE%E7%A8%8B%E8%80%83%E8%AF%95/">课程考试</a>
-      
-    
-  </div>
+        
 
-  <div class="post-content">
-    <h2 id="1、题型分布"><a href="#1、题型分布" class="headerlink" title="1、题型分布"></a>1、题型分布</h2><ol>
+<style>
+  .post-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 240px;
+    gap: 20px;
+    align-items: start;
+  }
+
+  .post-main {
+    min-width: 0;
+  }
+
+  .post-toc {
+    position: sticky;
+    top: 84px;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--surface);
+    max-height: calc(100vh - 110px);
+    overflow: auto;
+  }
+
+  .post-toc h3 {
+    margin: 0 0 8px;
+    font-size: 0.95rem;
+    color: var(--muted);
+  }
+
+  .post-toc .toc,
+  .post-toc ol,
+  .post-toc ul {
+    margin: 0;
+    padding-left: 16px;
+    list-style: none;
+  }
+
+  .post-toc li {
+    margin: 4px 0;
+    line-height: 1.5;
+    font-size: 0.9rem;
+  }
+
+  .post-toc .toc-child {
+    margin-top: 4px;
+    padding-left: 12px;
+    border-left: 1px dashed var(--line);
+  }
+
+  .post-toc a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  .post-toc a:hover {
+    color: var(--primary);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 980px) {
+    .post-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .post-toc {
+      position: static;
+      max-height: none;
+      margin-top: 10px;
+    }
+  }
+</style>
+
+<section class="post-layout">
+  <article class="post-main">
+    <h1 class="post-title">算法分析与设计知识总结</h1>
+    <div class="meta">
+      <time datetime="2026-04-22T12:11:11.000Z">2026-04-22 20:11</time>
+      
+        · 分类：
+        
+          <a href="/categories/%E8%AF%BE%E7%A8%8B%E8%80%83%E8%AF%95/">课程考试</a>
+        
+      
+    </div>
+
+    <div class="post-content">
+      <h2 id="1、题型分布"><a href="#1、题型分布" class="headerlink" title="1、题型分布"></a>1、题型分布</h2><ol>
 <li>选择</li>
 <li>填空</li>
 <li>简答（记住各种算法的特性）</li>
@@ -1148,11 +1223,11 @@ mjx-container[display="true"] + br {
 <p>9.找硬币、活动安排、背包问题（贪心选择策略）（特殊：0-1背包问题：贪心/动态规划）、哈夫曼编码<br>10.实战练习</p>
 <div class="md-vue-root" data-component="MdDivider" data-props="{&quot;variant&quot;:&quot;dotted&quot;}"></div>
 
-<h2 id="四、回溯算法（DFS）"><a href="#四、回溯算法（DFS）" class="headerlink" title="四、回溯算法（DFS）"></a>四、回溯算法（DFS）</h2><p>问题一：装载问题</p>
+<h2 id="四、回溯算法"><a href="#四、回溯算法" class="headerlink" title="四、回溯算法"></a>四、回溯算法</h2><p>问题一：装载问题</p>
 <p>问题二：批处理作业调度</p>
 <p>问题四：n皇后问题</p>
 <p>11.回溯（基本操作：搜索-深度优先）：算法基本思想/接口见、递归、迭代，子集树排列树<br>12.售票员、0-1背包问题、剪枝函数，不同节点概念、集装箱、批量处理作业（*），n后问题</p>
-<h2 id="五、分支界限算法（BFS）"><a href="#五、分支界限算法（BFS）" class="headerlink" title="五、分支界限算法（BFS）"></a>五、分支界限算法（BFS）</h2><p>（一）队列式分支限界算法<br>（二）优先队列式分支限界算法</p>
+<h2 id="五、分支界限算法"><a href="#五、分支界限算法" class="headerlink" title="五、分支界限算法"></a>五、分支界限算法</h2><p>（一）队列式分支限界算法<br>（二）优先队列式分支限界算法</p>
 <p>所有边的权重都是1时才能用BFS求解最短路</p>
 <p>问题二：装载问题</p>
 <p>问题三：旅行售货员问题</p>
@@ -1162,10 +1237,18 @@ mjx-container[display="true"] + br {
 
 <p>四、五、的实战练习</p>
 
-  </div>
+    </div>
+
+    
+  </article>
 
   
-</article>
+    <aside class="post-toc" aria-label="文章目录">
+      <h3>目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E9%A2%98%E5%9E%8B%E5%88%86%E5%B8%83"><span class="toc-text">1、题型分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86"><span class="toc-text">2、知识点梳理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1%E3%80%81%E7%BB%AA%E8%AE%BA"><span class="toc-text">2.1、绪论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%A6%82%E5%BF%B5%EF%BC%88%E6%B1%82%E8%A7%A3%E9%97%AE%E9%A2%98%E7%9A%84%E6%96%B9%E6%B3%95%E5%92%8C%E6%AD%A5%E9%AA%A4%EF%BC%89%EF%BC%8C%E5%92%8C%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%8C%E5%92%8C%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">算法概念（求解问题的方法和步骤），和程序的区别，和程序的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="toc-text">复杂度分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%92%E5%BD%92"><span class="toc-text">递归</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95"><span class="toc-text">分治算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%97%E6%B3%95"><span class="toc-text">动态规划算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95"><span class="toc-text">四、贪心算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95"><span class="toc-text">四、回溯算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%88%86%E6%94%AF%E7%95%8C%E9%99%90%E7%AE%97%E6%B3%95"><span class="toc-text">五、分支界限算法</span></a></li></ol>
+    </aside>
+  
+</section>
 
       </main>
 
@@ -1174,7 +1257,7 @@ mjx-container[display="true"] + br {
       </footer>
     </div>
 
-    <script id="search-posts-data" type="application/json">[{"title":"算法竞赛C++基础","url":"/2026/05/07/CAndCpp/"},{"title":"Git基础知识","url":"/2026/04/28/Git/"},{"title":"使用教程","url":"/2026/04/22/README/"},{"title":"算法分析与设计知识总结","url":"/2026/04/22/asset-demo/"},{"title":"Hello World","url":"/2026/04/21/hello-world/"}]</script>
+    <script id="search-posts-data" type="application/json">[{"title":"使用教程","url":"/2026/04/22/README/"},{"title":"算法分析与设计知识总结","url":"/2026/04/22/asset-demo/"},{"title":"Git基础知识","url":"/2026/04/28/Git/"},{"title":"Hello World","url":"/2026/04/21/hello-world/"},{"title":"算法竞赛C++基础","url":"/2026/05/07/CAndCpp/"}]</script>
     <script src="https://cdn.jsdelivr.net/npm/vue@3.5.17/dist/vue.global.prod.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-clike.min.js"></script>
